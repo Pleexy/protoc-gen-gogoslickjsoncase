@@ -42,12 +42,14 @@ func main() {
 }
 
 func JsonTagCamelCase(field *descriptor.FieldDescriptorProto) {
+	/*
 	if field.IsRepeated() || field.IsMessage() {
 		return
 	}
 	if field.DefaultValue != nil {
 		return
 	}
+	*/
 	SetStringFieldOption(gogoproto.E_Jsontag, LcFirst(generator.CamelCase(*field.Name)))(field)
 
 }
